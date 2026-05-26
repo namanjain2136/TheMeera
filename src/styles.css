@@ -1,0 +1,155 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-serif: "Cormorant Garamond", "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-ivory: var(--ivory);
+  --color-cream: var(--cream);
+  --color-champagne: var(--champagne);
+  --color-burgundy: var(--burgundy);
+  --color-burgundy-soft: var(--burgundy-soft);
+  --color-wine: var(--wine);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ink: var(--ink);
+
+  --animate-drift-slow: drift 28s ease-in-out infinite;
+  --animate-glow-pulse: glowPulse 10s ease-in-out infinite;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Warm hospitality palette */
+  --ivory: oklch(0.985 0.012 85);
+  --cream: oklch(0.965 0.018 82);
+  --champagne: oklch(0.92 0.028 80);
+  --gold: oklch(0.72 0.11 75);
+  --gold-soft: oklch(0.82 0.07 80);
+  --burgundy: oklch(0.38 0.13 22);
+  --burgundy-soft: oklch(0.52 0.14 22);
+  --wine: oklch(0.32 0.12 18);
+  --ink: oklch(0.28 0.02 60);
+
+  --background: var(--ivory);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+  --primary: var(--burgundy);
+  --primary-foreground: var(--ivory);
+  --secondary: var(--cream);
+  --secondary-foreground: var(--ink);
+  --muted: var(--cream);
+  --muted-foreground: oklch(0.48 0.02 60);
+  --accent: var(--champagne);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.55 0.18 28);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.88 0.02 80);
+  --input: oklch(0.9 0.018 80);
+  --ring: var(--burgundy-soft);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .font-serif { font-family: var(--font-serif); }
+  .font-display { font-family: var(--font-display); }
+  .tracking-luxe { letter-spacing: 0.32em; }
+  .tracking-wider-luxe { letter-spacing: 0.18em; }
+  .hairline {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--burgundy-soft), transparent);
+  }
+
+  /* Ambient hero background — soft ivory/cream with wine glow */
+  .hero-ambient {
+    background:
+      radial-gradient(60% 50% at 20% 30%, color-mix(in oklab, var(--burgundy) 14%, transparent) 0%, transparent 70%),
+      radial-gradient(55% 45% at 80% 25%, color-mix(in oklab, var(--gold) 18%, transparent) 0%, transparent 70%),
+      radial-gradient(70% 60% at 70% 85%, color-mix(in oklab, var(--wine) 16%, transparent) 0%, transparent 70%),
+      radial-gradient(50% 40% at 25% 90%, color-mix(in oklab, var(--champagne) 50%, transparent) 0%, transparent 70%),
+      linear-gradient(180deg, var(--ivory) 0%, var(--cream) 100%);
+    background-size: 140% 140%, 130% 130%, 150% 150%, 120% 120%, 100% 100%;
+    background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0 0;
+    animation: ambientDrift 32s ease-in-out infinite alternate;
+  }
+
+  .hero-noise {
+    background-image: radial-gradient(rgba(120, 50, 40, 0.04) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+}
+
+@keyframes ambientDrift {
+  0% {
+    background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0 0;
+  }
+  100% {
+    background-position: 10% 8%, 88% 12%, 90% 92%, 8% 88%, 0 0;
+  }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -8px, 0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.85; }
+}
