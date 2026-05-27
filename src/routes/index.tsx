@@ -96,7 +96,7 @@ function Hero() {
         >
           <span className="h-px w-10 bg-burgundy/50" />
           <span className="text-[11px] uppercase tracking-luxe text-burgundy">
-            A Heritage Sanctuary · Jaipur
+            A luxury Experience · Indore
           </span>
           <span className="h-px w-10 bg-burgundy/50" />
         </motion.div>
