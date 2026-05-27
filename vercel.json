@@ -2,7 +2,7 @@
   "version": 2,
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/assets/(.*)", "dest": "/dist/client/assets/$1" },
+    { "src": "/assets/(.*)", "dest": "/client/assets/$1" },
     { "src": "/(.*)", "dest": "/api/index.ts" }
   ]
 }
