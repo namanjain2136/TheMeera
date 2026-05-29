@@ -8,7 +8,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="font-serif text-3xl text-ivory">The Meera</div>
             <div className="mt-2 text-[10px] tracking-luxe uppercase text-ivory/80">
-              Heritage · Hospitality
+              A Luxury Experience
             </div>
             <p className="mt-8 max-w-md font-serif text-lg leading-relaxed text-ivory/85">
               A timeless retreat where heritage craftsmanship, warm Indian hospitality and modern
@@ -19,11 +19,31 @@ export function Footer() {
           <div>
             <div className="text-[11px] uppercase tracking-wider-luxe text-ivory/80">Explore</div>
             <ul className="mt-6 space-y-3 text-sm text-ivory/90">
-              <li><Link to="/" hash="about" className="hover:text-ivory">About</Link></li>
-              <li><Link to="/" hash="weddings" className="hover:text-ivory">Weddings</Link></li>
-              <li><Link to="/" hash="rooms" className="hover:text-ivory">Rooms & Suites</Link></li>
-              <li><Link to="/" hash="gallery" className="hover:text-ivory">Gallery</Link></li>
-              <li><Link to="/" hash="booknow" className="hover:text-ivory">Book Now</Link></li>
+              <li>
+                <Link to="/" hash="about" className="hover:text-ivory">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/" hash="weddings" className="hover:text-ivory">
+                  Weddings
+                </Link>
+              </li>
+              <li>
+                <Link to="/" hash="facility" className="hover:text-ivory">
+                  Facility
+                </Link>
+              </li>
+              <li>
+                <Link to="/" hash="gallery" className="hover:text-ivory">
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link to="/" hash="inquiry" className="hover:text-ivory">
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -43,9 +63,15 @@ export function Footer() {
             © {new Date().getFullYear()} The Meera. All rights reserved.
           </div>
           <div className="flex gap-6 text-xs text-ivory/60">
-            <a href="#" className="hover:text-ivory">Privacy</a>
-            <a href="#" className="hover:text-ivory">Terms</a>
-            <a href="#" className="hover:text-ivory">Press</a>
+            <a href="#" className="hover:text-ivory">
+              Privacy
+            </a>
+            <a href="#" className="hover:text-ivory">
+              Terms
+            </a>
+            <a href="#" className="hover:text-ivory">
+              Press
+            </a>
           </div>
         </div>
       </div>

@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/themeera-logo.png";
 
 const links = [
-  { label: "Home", to: "/" as const, hash: "home" },
   { label: "About", to: "/" as const, hash: "about" },
   { label: "Weddings", to: "/" as const, hash: "weddings" },
-  { label: "Rooms", to: "/" as const, hash: "rooms" },
+  { label: "Facility", to: "/" as const, hash: "facility" },
   { label: "Gallery", to: "/" as const, hash: "gallery" },
+  { label: "Contact Us", to: "/" as const, hash: "inquiry" },
 ];
 
 export function Navbar() {
@@ -40,15 +41,13 @@ export function Navbar() {
         <Link
           to="/"
           className={cn(
-            "flex flex-col leading-none transition-colors",
+            "flex flex-col items-start leading-none transition-colors",
             solid ? "text-ink" : "text-ink",
           )}
         >
-          <span className="font-serif text-2xl md:text-3xl tracking-wide text-burgundy">
-            The Meera
-          </span>
-          <span className="mt-1 text-[10px] tracking-luxe uppercase opacity-70">
-            Heritage · Hospitality
+          <img src={logo} alt="The Meera" className="h-12 w-auto object-contain md:h-14" />
+          <span className="mt-2 pl-1 text-[10px] uppercase tracking-luxe text-burgundy/80">
+            A Luxury Experience
           </span>
         </Link>
 
@@ -65,19 +64,7 @@ export function Navbar() {
           ))}
         </nav>
 
-        <Link
-          to="/"
-          hash="booknow"
-          className="hidden md:inline-flex items-center justify-center border border-burgundy bg-burgundy px-6 py-3 text-[11px] uppercase tracking-wider-luxe text-ivory transition-all duration-300 hover:bg-transparent hover:text-burgundy"
-        >
-          Book Now
-        </Link>
-
-        <button
-          aria-label="Open menu"
-          onClick={() => setOpen(true)}
-          className="lg:hidden text-ink"
-        >
+        <button aria-label="Open menu" onClick={() => setOpen(true)} className="lg:hidden text-ink">
           <Menu className="h-6 w-6" />
         </button>
       </div>
@@ -90,7 +77,12 @@ export function Navbar() {
         )}
       >
         <div className="flex items-center justify-between px-6 py-5">
-          <span className="font-serif text-2xl text-burgundy">The Meera</span>
+          <Link to="/" onClick={() => setOpen(false)} className="flex flex-col items-start">
+            <img src={logo} alt="The Meera" className="h-11 w-auto object-contain" />
+            <span className="mt-2 pl-1 text-[10px] uppercase tracking-luxe text-burgundy/80">
+              A Luxury Experience
+            </span>
+          </Link>
           <button aria-label="Close menu" onClick={() => setOpen(false)} className="text-ink">
             <X className="h-6 w-6" />
           </button>
@@ -107,14 +99,6 @@ export function Navbar() {
               {l.label}
             </Link>
           ))}
-          <Link
-            to="/"
-            hash="booknow"
-            onClick={() => setOpen(false)}
-            className="mt-6 border border-burgundy bg-burgundy px-8 py-3 text-[11px] uppercase tracking-wider-luxe text-ivory"
-          >
-            Book Now
-          </Link>
         </nav>
       </div>
     </header>

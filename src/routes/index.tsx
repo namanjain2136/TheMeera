@@ -7,6 +7,7 @@ import { Footer } from "@/components/site/Footer";
 import { InquiryForm } from "@/components/site/InquiryForm";
 
 import aboutInterior from "@/assets/about-interior.jpg";
+import heroPalace from "@/assets/hero-palace.jpg";
 import roomSuite from "@/assets/room-suite.jpg";
 import weddings from "@/assets/weddings.jpg";
 import { GallerySection } from "@/components/site/GallerySection";
@@ -52,20 +53,14 @@ function Section({
 
 function Hero() {
   return (
-    <section
-      id="home"
-      className="hero-ambient relative h-screen min-h-[680px] w-full overflow-hidden"
-    >
-      {/* Subtle texture overlay */}
+    <section className="hero-ambient relative pt-40 pb-24 md:pt-48 md:pb-32">
       <div className="hero-noise absolute inset-0 opacity-60" />
-
-      {/* Soft floating ornamental glows */}
       <motion.div
         aria-hidden
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
-        className="absolute -left-32 top-20 h-[420px] w-[420px] rounded-full"
+        className="absolute -left-40 top-16 h-[420px] w-[420px] rounded-full"
         style={{
           background:
             "radial-gradient(circle, color-mix(in oklab, var(--burgundy) 18%, transparent), transparent 70%)",
@@ -87,67 +82,29 @@ function Hero() {
         }}
       />
 
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-ink">
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="flex items-center gap-4"
-        >
-          <span className="h-px w-10 bg-burgundy/50" />
-          <span className="text-[11px] uppercase tracking-luxe text-burgundy">
-            A luxury Experience · Indore
-          </span>
-          <span className="h-px w-10 bg-burgundy/50" />
-        </motion.div>
+      <div className="relative z-10 mx-auto flex w-full max-w-[1280px] flex-col items-center px-6 text-center text-ink md:px-12">
+        <div className="w-full max-w-6xl overflow-hidden rounded-2xl border border-burgundy/15 bg-ivory/60 p-3 shadow-[0_30px_80px_-36px_rgba(100,24,24,0.45)] md:p-4">
+          <img
+            src={heroPalace}
+            alt="Cinematic view of The Meera's heritage architecture"
+            className="h-[340px] w-full rounded-xl object-cover object-center md:h-[520px] lg:h-[620px]"
+          />
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
-          className="mt-8 font-serif text-[3.75rem] leading-[0.95] tracking-wide text-burgundy md:text-[7.25rem] lg:text-[9rem]"
-        >
-          The Meera
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.9 }}
-          className="mt-8 max-w-xl font-serif text-lg italic text-ink/75 md:text-xl"
-        >
-          Where Indian heritage is reimagined as timeless luxury.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="mt-12 flex flex-col items-center gap-4 sm:flex-row"
-        >
-          <a
-            href="#booknow"
-            className="inline-flex items-center justify-center rounded-full border border-burgundy bg-burgundy px-10 py-4 text-[11px] uppercase tracking-wider-luxe text-ivory transition hover:bg-transparent hover:text-burgundy"
-          >
-            Book Now
+        <div className="mt-12 flex flex-col items-center gap-8">
+          <p className="max-w-3xl px-4 font-serif text-[1.7rem] leading-[1.22] text-burgundy md:text-[2.35rem]">
+            Indian heritage reimagined as timeless luxury.
+          </p>
+          <a href="#about" className="inline-flex items-center gap-2 text-[11px] uppercase tracking-wider-luxe text-burgundy">
+            Discover The Meera
+            <ArrowRight className="h-3.5 w-3.5" />
           </a>
-          <a
-            href="#about"
-            className="inline-flex items-center gap-2 text-[11px] uppercase tracking-wider-luxe text-burgundy hover:text-wine"
-          >
-            Discover The Meera <ArrowRight className="h-3.5 w-3.5" />
-          </a>
-        </motion.div>
+        </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.6, duration: 1 }}
-        className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 text-[10px] uppercase tracking-luxe text-burgundy/70"
-      >
+      <div className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 text-[10px] uppercase tracking-luxe text-burgundy/70">
         Scroll to explore
-      </motion.div>
+      </div>
     </section>
   );
 }
@@ -163,7 +120,8 @@ function About() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <h2 className="font-serif text-4xl leading-[1.05] md:text-6xl">
-            A palace of warmth,<br />
+            A palace of warmth,
+            <br />
             <span className="italic text-burgundy">crafted for the modern traveller.</span>
           </h2>
           <div className="hairline mt-10 w-24" />
@@ -240,7 +198,7 @@ const rooms = [
 
 function Rooms() {
   return (
-    <Section id="rooms" eyebrow="Rooms & Accommodation" className="bg-cream">
+    <Section id="facility" eyebrow="Facility" className="bg-cream">
       <div className="flex flex-col items-start justify-between gap-10 md:flex-row md:items-end">
         <h2 className="max-w-xl font-serif text-4xl leading-[1.05] md:text-6xl">
           Suites composed with <span className="italic text-burgundy">quiet luxury.</span>
@@ -345,7 +303,8 @@ function Weddings() {
             </span>
           </div>
           <h2 className="mt-8 font-serif text-4xl leading-[1.05] md:text-5xl">
-            A celebration as <span className="italic text-burgundy">timeless</span> as the palace itself.
+            A celebration as <span className="italic text-burgundy">timeless</span> as the palace
+            itself.
           </h2>
           <p className="mt-8 max-w-md leading-[1.9] text-ink/75">
             From intimate ceremonies in the moonlit courtyard to grand processions through our
@@ -359,7 +318,7 @@ function Weddings() {
             <li>· Full-palace buy-outs</li>
           </ul>
           <a
-            href="#booknow"
+            href="#inquiry"
             className="mt-12 inline-flex w-fit items-center justify-center rounded-full border border-burgundy bg-burgundy px-10 py-4 text-[11px] uppercase tracking-wider-luxe text-ivory transition hover:bg-transparent hover:text-burgundy"
           >
             Plan Your Wedding
@@ -372,7 +331,7 @@ function Weddings() {
 
 function BookNow() {
   return (
-    <Section id="booknow" eyebrow="Book Now" className="bg-ivory">
+    <Section id="inquiry" eyebrow="Contact Us" className="bg-ivory">
       <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
         <motion.div
           variants={fadeUp}
@@ -391,7 +350,9 @@ function BookNow() {
 
           <div className="mt-12 space-y-6 border-t border-border pt-10 text-sm text-ink/80">
             <div>
-              <div className="text-[11px] uppercase tracking-wider-luxe text-gold">Reservations</div>
+              <div className="text-[11px] uppercase tracking-wider-luxe text-gold">
+                Reservations
+              </div>
               <div className="mt-2 font-serif text-2xl text-burgundy">+91 141 000 0000</div>
             </div>
             <div>
