@@ -53,8 +53,8 @@ function Section({
 
 function Hero() {
   return (
-    <section className="hero-ambient relative pt-40 pb-24 md:pt-48 md:pb-32">
-      <div className="hero-noise absolute inset-0 opacity-60" />
+    <section className="hero-ambient relative overflow-hidden">
+      <div className="hero-noise absolute inset-0 opacity-20 z-0" />
       <motion.div
         aria-hidden
         initial={{ opacity: 0 }}
@@ -82,28 +82,30 @@ function Hero() {
         }}
       />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1280px] flex-col items-center px-6 text-center text-ink md:px-12">
-        <div className="w-full max-w-6xl overflow-hidden rounded-2xl border border-burgundy/15 bg-ivory/60 p-3 shadow-[0_30px_80px_-36px_rgba(100,24,24,0.45)] md:p-4">
+      <div className="relative z-0 w-full overflow-hidden">
+        <div className="h-screen w-full">
           <img
             src={heroPalace}
             alt="Cinematic view of The Meera's heritage architecture"
-            className="h-[340px] w-full rounded-xl object-cover object-center md:h-[520px] lg:h-[620px]"
+            className="h-full w-full object-cover object-top"
           />
-        </div>
-
-        <div className="mt-12 flex flex-col items-center gap-8">
-          <p className="max-w-3xl px-4 font-serif text-[1.7rem] leading-[1.22] text-burgundy md:text-[2.35rem]">
-            Indian heritage reimagined as timeless luxury.
-          </p>
-          <a href="#about" className="inline-flex items-center gap-2 text-[11px] uppercase tracking-wider-luxe text-burgundy">
-            Discover The Meera
-            <ArrowRight className="h-3.5 w-3.5" />
-          </a>
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 text-[10px] uppercase tracking-luxe text-burgundy/70">
-        Scroll to explore
+      <div className="relative z-10 mx-auto flex w-full max-w-[1280px] flex-col items-center px-6 py-16 text-center text-ink md:px-12">
+        <p
+          className="max-w-3xl px-4 font-serif text-[1.9rem] leading-[1.18] text-[#8c1f1f] md:text-[2.55rem] transition duration-300 ease-out hover:font-bold hover:text-[#a42d2d]"
+          style={{ textShadow: "0 0 2px rgba(0,0,0,0.18), 0 0 10px rgba(140,31,31,0.18)" }}
+        >
+          Indian heritage reimagined as timeless luxury.
+        </p>
+        <a
+          href="#about"
+          className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#b53a2c] bg-transparent px-7 py-3 text-[11px] uppercase tracking-wider-luxe text-[#b53a2c] shadow-sm transition-all duration-300 ease-out hover:bg-[#b53a2c] hover:text-[#fff4d0] hover:shadow-[0_0_24px_rgba(181,58,44,0.24)]"
+        >
+          Discover The Meera
+          <ArrowRight className="h-3.5 w-3.5" />
+        </a>
       </div>
     </section>
   );
@@ -205,7 +207,7 @@ function Rooms() {
         </h2>
         <a
           href="/rooms"
-          className="text-[11px] uppercase tracking-wider-luxe text-burgundy underline-offset-8 hover:underline"
+          className="inline-flex items-center justify-center rounded-full bg-[#d4af37] px-6 py-3 text-[11px] font-semibold uppercase tracking-wider-luxe text-[#5c220f] shadow-[0_10px_30px_rgba(212,175,55,0.22)] transition duration-300 hover:bg-[#b88d22] hover:text-white"
         >
           View all suites →
         </a>
@@ -259,7 +261,7 @@ function Rooms() {
               <p className="mt-4 text-sm leading-relaxed text-ink/70">{r.desc}</p>
               <a
                 href="/rooms"
-                className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-wider-luxe text-burgundy hover:text-wine"
+                className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#b53a2c] bg-transparent px-4 py-2 text-[11px] uppercase tracking-wider-luxe text-[#b53a2c] transition duration-300 hover:bg-[#b53a2c] hover:text-[#fff4d0] hover:shadow-[0_0_18px_rgba(181,58,44,0.24)]"
               >
                 Explore <ArrowRight className="h-3.5 w-3.5" />
               </a>

@@ -46,7 +46,7 @@ export function Navbar() {
           )}
         >
           <img src={logo} alt="The Meera" className="h-12 w-auto object-contain md:h-14" />
-          <span className="mt-2 pl-1 text-[10px] uppercase tracking-luxe text-burgundy/80">
+          <span className="mt-2 pl-1 text-[10px] font-semibold uppercase tracking-luxe text-burgundy/90">
             A Luxury Experience
           </span>
         </Link>
@@ -57,14 +57,23 @@ export function Navbar() {
               key={l.label}
               to={l.to}
               hash={l.hash}
-              className="text-[12px] uppercase tracking-wider-luxe text-ink/75 transition-colors hover:text-burgundy"
+              className={cn(
+                "text-sm uppercase tracking-wider-luxe transition-colors duration-300",
+                solid
+                  ? "text-ink/90 hover:text-burgundy"
+                  : "text-white/95 hover:text-[#d12f2f]",
+              )}
             >
               {l.label}
             </Link>
           ))}
         </nav>
 
-        <button aria-label="Open menu" onClick={() => setOpen(true)} className="lg:hidden text-ink">
+        <button
+          aria-label="Open menu"
+          onClick={() => setOpen(true)}
+          className={cn("lg:hidden transition-colors", solid ? "text-ink" : "text-white")}
+        >
           <Menu className="h-6 w-6" />
         </button>
       </div>
