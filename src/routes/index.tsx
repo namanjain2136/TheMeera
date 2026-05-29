@@ -7,6 +7,7 @@ import { Footer } from "@/components/site/Footer";
 import { InquiryForm } from "@/components/site/InquiryForm";
 
 import aboutInterior from "@/assets/about-interior.jpg";
+import introVideo from "@/assets/intro.mp4";
 import heroPalace from "@/assets/hero-palace.jpg";
 import roomSuite from "@/assets/room-suite.jpg";
 import weddings from "@/assets/weddings.jpg";
@@ -84,10 +85,14 @@ function Hero() {
 
       <div className="relative z-0 w-full overflow-hidden">
         <div className="h-screen w-full">
-          <img
-            src={heroPalace}
-            alt="Cinematic view of The Meera's heritage architecture"
+          <video
+            src={introVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
             className="h-full w-full object-cover object-top"
+            aria-label="Intro video showcasing The Meera"
           />
         </div>
       </div>
